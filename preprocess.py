@@ -2,7 +2,7 @@ import argparse
 import os
 from multiprocessing import cpu_count
 from tqdm import tqdm
-from datasets import thchs30
+from datasets import thchs30, biaobei
 from hparams import hparams as hp
 
 def write_metadata(metadata, out_dir):
@@ -15,8 +15,6 @@ def write_metadata(metadata, out_dir):
     print('Max input length:  %d' % max(len(m[4]) for m in metadata))
     print('Max output length: %d' % max(m[3] for m in metadata))
 
-
-
 def preprocess_thchs30(args):
     in_dir = os.path.join(args.base_dir, 'thchs30', 'data')
     out_dir = os.path.join(args.out_dir, 'thchs30')
@@ -25,13 +23,18 @@ def preprocess_thchs30(args):
     write_metadata(metadata, out_dir)
 
 def preprocess_biaobei(args):
-    pass
+    in_dir = os.path.join(args.base_dir, 'biaobei')
+    out_dir = os.path.join(args.out_dir, 'biaobei')
+    print(in_dir)
+    os.makedirs(out_dir, exist_ok=True)
+    metadata = biaobei.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
+    write_metadata(metadata, out_dir)
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--base_dir', default=os.path.expanduser('/home/the/Data'))
-    parser.add_argument('--out_dir', default='/home/the/disk_ssd/disk_ubuntu18.04/tacotron/input/thchs30')
-    parser.add_argument('--dataset', default='thchs30', choices=['biaobei', 'thchs30'])
+    parser.add_argument('--out_dir', default='/home/the/disk_ssd/disk_ubuntu18.04/tacotron/input')
+    parser.add_argument('--dataset', default='biaobei', choices=['biaobei', 'thchs30'])
     parser.add_argument('--num_workers', type=int, default=cpu_count())
 
     args = parser.parse_args()
