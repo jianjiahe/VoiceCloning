@@ -31,6 +31,7 @@ hparams = tf.contrib.training.HParams(
     postnet_depth=512,
     attention_depth=128,
     decoder_depth=1024,
+    l2=0.001,
 
     # Training:
     batch_size=32,
