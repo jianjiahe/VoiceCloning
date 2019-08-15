@@ -24,12 +24,20 @@ hparams = tf.contrib.training.HParams(
     fmax=7600,  # for male, set 3600
 
     # Model:
-    outputs_per_step=5,
+    # outputs_per_step=5,
+    # embed_depth=512,
+    # prenet_depths=[256, 256],
+    # encoder_depth=256,
+    # postnet_depth=512,
+    # attention_depth=128,
+    # decoder_depth=1024,
+    # l2=0.001,
+    outputs_per_step=3,
     embed_depth=512,
     prenet_depths=[256, 256],
     encoder_depth=256,
-    postnet_depth=512,
-    attention_depth=128,
+    postnet_depth=256,
+    attention_depth=256,
     decoder_depth=1024,
     l2=0.001,
 

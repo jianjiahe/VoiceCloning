@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb52c54-062f-4af1-89d3-c01332ecca43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/tacotron.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/attention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/basis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/custum_decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/util/rnn_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/tf_op.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/text/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/text/symbols.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hparams.py" beforeDir="false" afterPath="$PROJECT_DIR$/hparams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/tacotron.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/tacotron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/util/custum_decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/util/custum_decoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/util/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/util/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/util/rnn_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/util/rnn_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/tf_op.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/tf_op.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +36,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../others/nmt" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/util/text" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,6 +137,14 @@
       <option name="presentableId" value="Default" />
       <updated>1564733406270</updated>
     </task>
+    <task id="LOCAL-00001" summary="attention add">
+      <created>1565186640327</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565186640327</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,5 +159,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="attention add" />
+    <option name="LAST_COMMIT_MESSAGE" value="attention add" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/ops/rnn_cell_impl.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

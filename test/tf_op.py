@@ -30,18 +30,27 @@ import numpy as np
 #     print(t3.eval())
 
 
-# 定义一个矩阵a，表示需要被卷积的矩阵。
-a = np.array(np.arange(1, 1 + 4).reshape([1, 5, 1]), dtype=np.float32)
-print(a)
-# 卷积核，此处卷积核的数目为1
-kernel = np.array(np.arange(1, 1 + 4), dtype=np.float32).reshape([2, 2, 1])
-print(kernel)
-# 进行conv1d卷积
-conv1d = tf.nn.conv1d(a, kernel, 1, padding='SAME')
-# conv1d = tf.nn.conv1d(a, kernel, 1, 'VALID')
-with tf.Session() as sess:
-    # 初始化
-    tf.global_variables_initializer().run()
-    # 输出卷积值
-    print(sess.run(conv1d))
-    print(conv1d.shape)
+# # 定义一个矩阵a，表示需要被卷积的矩阵。
+# a = np.array(np.arange(1, 1 + 4).reshape([1, 5, 1]), dtype=np.float32)
+# print(a)
+# # 卷积核，此处卷积核的数目为1
+# kernel = np.array(np.arange(1, 1 + 4), dtype=np.float32).reshape([2, 2, 1])
+# print(kernel)
+# # 进行conv1d卷积
+# conv1d = tf.nn.conv1d(a, kernel, 1, padding='SAME')
+# # conv1d = tf.nn.conv1d(a, kernel, 1, 'VALID')
+# with tf.Session() as sess:
+#     # 初始化
+#     tf.global_variables_initializer().run()
+#     # 输出卷积值
+#     print(sess.run(conv1d))
+#     print(conv1d.shape)
+
+
+class test():
+    def __init__(self):
+        super(test).__init__()
+    def p(self):
+        print(type(self).__name__)
+t = test()
+t.p()
