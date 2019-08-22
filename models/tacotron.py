@@ -1,12 +1,12 @@
 from hparams import hparams as hp
-from util.text.symbols import Symbols
+from utils.text.symbols import Symbols
 import tensorflow as tf
-from model.util.basis import pre_net, cbhg
-from model.util.attention import Attention
-from model.util.rnn_wrapper import DecoderWrapper
-from model.util.custum_decoder import CustomDecoder
-from model.util.helper import TacoTestHelper, TacoTrainHelper
-from tensorflow.contrib.rnn import MultiRNNCell,ResidualWrapper, GRUCell
+from models.util.basis import pre_net, cbhg
+from models.util.attention import Attention
+from models.util.rnn_wrapper import DecoderWrapper
+from models.util.custum_decoder import CustomDecoder
+from models.util.helper import TacoTestHelper, TacoTrainHelper
+from tensorflow.contrib.rnn import MultiRNNCell, ResidualWrapper, GRUCell
 from tensorflow.contrib.seq2seq import dynamic_decode
 
 class Tacotron:
@@ -30,12 +30,12 @@ class Tacotron:
         if self._training:
             return TacoTrainHelper(inputs, mel_targets,
                                    output_dim=self._mel_filters,
-                                   r=self._output_per_step,
+                                   r=self._output_per_size,
                                    global_step=global_step)
         else:
             return TacoTestHelper(batch_size=batch_size,
                                   output_dim=self._mel_filters,
-                                  r=self._output_per_step)
+                                  r=self._output_per_size)
 
     def embedding_layer(self, inputs):
         with tf.variable_scope('EmbeddingLayer'):
@@ -47,7 +47,7 @@ class Tacotron:
         with tf.variable_scope('Encoder'):
             out = pre_net(embedding_outputs, training=training, scope='Encoder_pre_net', use_bn=True)  # why use_bn=True
             out = cbhg(out, input_length, training, [128, hp.prenet_depths[-1]], k=16, depth=128, scope='Encoder_CBHG')
-            return out
+            return out[1]
 
     def decoder(self, attention_mechanism, batch_size, inputs, mel_targets, global_step):
         with tf.variable_scope('Decoder'):
@@ -66,10 +66,10 @@ class Tacotron:
     def refine_linear(self, linear):
         with tf.variable_scope('LinearOutput'):
             linear_outputs = tf.layers.dense(linear, self._linear_size, use_bias=True)
-            return linear_outputs
+        return linear_outputs
 
     def infer(self, inputs, input_length, mel_targets=None, global_step=None):
-        batch_size = tf.shape(inputs[0])
+        batch_size = tf.shape(inputs)[0]
 
         embedding_inputs = self.embedding_layer(inputs)
 

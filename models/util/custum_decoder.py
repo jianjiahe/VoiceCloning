@@ -4,12 +4,14 @@ from tensorflow.python.util import nest
 from tensorflow.python.ops import rnn_cell_impl
 from tensorflow.contrib.seq2seq import Decoder, Helper
 
+
 class CustomDecoderOutput(collections.namedtuple('CustomDecoderOutput',
                                                  ('rnn_output', 'token_output', 'sample_id'))):
     pass
 
+
 class CustomDecoder(Decoder):
-    def __init__(self, cell, helper, initial_state, output_layer):
+    def __init__(self, cell, helper, initial_state, output_layer=None):
         self._cell = cell
         self._helper = helper
         self._initial_state = initial_state
@@ -27,14 +29,8 @@ class CustomDecoder(Decoder):
     def batch_size(self):
         return self._helper.batch_size
 
-    @property
-    def output_size(self):
-        return CustomDecoderOutput(rnn_output=self._rnn_output_size(),
-                                   token_output=self._helper.token_output_size,
-                                   sample_id=self._helper.sample_ids_shape)
-
     def _rnn_output_size(self):
-        size = self._cell.output_size()
+        size = self._cell.output_size
         if self._output_layer is None:
             return size
         else:
@@ -44,8 +40,22 @@ class CustomDecoder(Decoder):
             layer_output_shape = self._output_layer._compute_output_shape(output_shape_with_unknown_size)
             return nest.map_structure(lambda x: x[1:], layer_output_shape)
 
+    @property
+    def output_size(self):
+        return CustomDecoderOutput(rnn_output=self._rnn_output_size(),
+                                   token_output=self._helper.token_output_size,
+                                   sample_id=self._helper.sample_ids_shape)
+
+    @property
+    def output_dtype(self):
+        data_type = nest.flatten(self._initial_state)[0].dtype
+        return CustomDecoderOutput(nest.map_structure(lambda _: data_type, self._rnn_output_size()),
+                                   tf.float32,
+                                   self._helper.sample_ids_dtype)
+
+
     def initialize(self, name=None):
-        return self._helper.initialize + self._initial_state
+        return self._helper.initialize() + (self._initial_state,)
 
     def step(self, time, inputs, state, name=None):
         """

@@ -45,8 +45,8 @@ class Attention(BahdanauAttention):
         data_type = w_query.dtype
         num_uints = w_keys.get_shape()[-1]
 
-        v_a = tf.variable('attention_variable', shape=[num_uints], data=data_type)
-        b_a = tf.variable('attention_bias', shape=[num_uints], data=data_type, initializer=tf.zeros_initializer())
+        v_a = tf.get_variable('attention_variable', shape=[num_uints], dtype=data_type)
+        b_a = tf.get_variable('attention_bias', shape=[num_uints], dtype=data_type, initializer=tf.zeros_initializer())
 
         score = tf.reduce_sum(v_a * tf.tanh(w_keys + w_query + w_location), axis=2)
 

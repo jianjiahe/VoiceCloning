@@ -3,7 +3,7 @@ from functools import partial
 import numpy as np
 import os
 import glob
-from util import audio
+from utils import audio
 from hparams import hparams as hp
 
 def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):

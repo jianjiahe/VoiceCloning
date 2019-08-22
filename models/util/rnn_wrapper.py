@@ -1,6 +1,6 @@
 import tensorflow as tf
 from hparams import hparams as hp
-from model.util.basis import pre_net
+from models.util.basis import pre_net
 
 from tensorflow.python.util import nest
 from tensorflow.python.ops import rnn_cell_impl
@@ -59,7 +59,7 @@ class TacotronDecoderCellState(
 
 class DecoderWrapper(RNNCell):
 
-    def __init__(self, training, attention_mechanism, rnn_cell, r=hp.output_per_step):
+    def __init__(self, training, attention_mechanism, rnn_cell, r=hp.outputs_per_step):
         super(DecoderWrapper, self).__init__()
         self._training = training
         self._attention_mechanism = attention_mechanism

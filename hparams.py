@@ -1,4 +1,8 @@
 import tensorflow as tf
+import logging
+import pandas as pd
+import numpy as np
+import sys
 
 # Default hyperparameters:
 hparams = tf.contrib.training.HParams(
@@ -6,10 +10,18 @@ hparams = tf.contrib.training.HParams(
 
     # Audio:
     num_mels=64,
-    num_freq=257,   # num_freq = n_fft // 2 + 1
+    num_freq=257,
+    n_fft=512,    # num_freq = n_fft // 2 + 1
     sample_rate=16000,
     frame_length_ms=25,
     frame_shift_ms=10,
+    frame_length_samples=400,   #int(sample_rate * frame_length_ms * 0.01),
+    frame_shift_samples=160,    #int(sample_rate * frame_shift_ms * 0.01),
+    window=np.hamming,
+    mel_log_center=-2.,
+    linear_log_center=-3.5,
+    max_duration_in_sec=12,
+
     # num_mels=80,
     # num_freq=2049,
     # sample_rate=48000,
@@ -53,6 +65,17 @@ hparams = tf.contrib.training.HParams(
     max_iters=300,
     griffin_lim_iters=60,
     power=1.2,  # Power to raise magnitudes to prior to Griffin-Lim
+
+    # CorpusName
+    CKP_DIR='checkpoint',
+    th30='th30',
+    biaobei='biaobei',
+
+    # OptimizerName
+    Momentum='momentum',
+    Adam = 'adam',
+
+
 )
 
 
@@ -60,6 +83,16 @@ def hparams_debug_string():
     values = hparams.values()
     hp = ['  %s: %s' % (name, values[name]) for name in sorted(values)]
     return 'Hyperparameters:\n' + '\n'.join(hp)
+
+def basic_config():
+    logging.basicConfig(handlers=[logging.StreamHandler(stream=sys.stdout)], level=logging.INFO,
+                        format='%(asctime)-15s [%(levelname)s] %(filename)s/%(funcName)s | %(message)s')
+
+    pd.set_option('display.max_rows', 500)
+    pd.set_option('display.max_columns', 500)
+    pd.set_option('display.width', 1000)
+    pd.set_option('max_colwidth', 100)
+    np.set_printoptions(precision=3, edgeitems=8, suppress=True, linewidth=1000)
 
 # def main():
 #   test = hparams_debug_string()
