@@ -119,8 +119,8 @@ class Trainer:
             with tf.variable_scope('grad_norms'):
                 grad_norms = []
                 for index, grad in enumerate(gradients):
+                    # print(index, ' grad is: ', grad)
                     # if grad is not None:
-                    print(index, ' grad is: ', grad)
                     grad_norms.append(tf.norm(grad))
                 tf.summary.histogram('grad_norms', grad_norms)
 

@@ -2,36 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb52c54-062f-4af1-89d3-c01332ecca43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/error.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/reshape_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/spec.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/stack_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/train_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/InferBase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/batch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/model_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/spectrogram.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/text/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/biaobei.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/biaobei.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/thchs30.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/thchs30.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hparams.py" beforeDir="false" afterPath="$PROJECT_DIR$/hparams.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/infer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/tacotron.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tacotron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/attention.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/basis.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/basis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/custum_decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/custum_decoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/util/rnn_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/rnn_wrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/audio.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/audio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/text/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/csv_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/text/symbols.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/text/symbols.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tacotron.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tacotron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/util/attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/attention.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/error.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/error.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/batch.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/batch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +56,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train">
-    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.batch">
+    <configuration name="batch" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="biaobei_tacotron" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -88,11 +65,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/batch.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.batch" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.reshape_test" />
         <item itemvalue="Python.spectrogram" />
         <item itemvalue="Python.stack_test" />
-        <item itemvalue="Python.preprocess" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565836212599</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="before run train successfully">
+      <created>1566466313050</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566466313050</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,7 +223,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="attention add" />
     <MESSAGE value="build model" />
-    <option name="LAST_COMMIT_MESSAGE" value="build model" />
+    <MESSAGE value="before run train successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="before run train successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

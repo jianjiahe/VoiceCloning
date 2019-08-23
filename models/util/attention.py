@@ -28,11 +28,11 @@ class Attention(BahdanauAttention):
         with tf.variable_scope(None, 'attention', [query]):
             processed_query = self.query_layer(query) if self.query_layer else query
 
-            precessed_query = tf.expand_dims(processed_query, axis=1)  # -> (batch_size, 1 , num_units)
+            processed_query = tf.expand_dims(processed_query, axis=1)  # -> (batch_size, 1 , num_units)
             expanded_alignments = tf.expand_dims(previous_alignment, axis=2)  # -> (batch_size, max_time, 1)
 
-            # f = tf.layers.conv1d(expanded_alignments, filters=32, kernel_size=31, padding='same', use_bias=True)
-            processed_location_features = tf.layers.dense(expanded_alignments, units=self._num_units, use_bias=False)
+            f = tf.layers.conv1d(expanded_alignments, filters=32, kernel_size=31, padding='same', use_bias=True)
+            processed_location_features = tf.layers.dense(f, units=self._num_units, use_bias=False)
 
             score = self._location_sensitive_score(processed_query, processed_location_features, self.keys)
 

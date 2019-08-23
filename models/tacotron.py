@@ -77,6 +77,7 @@ class Tacotron:
 
         attention_mechanism = Attention(self._attention_depth, encoder_outputs)
 
+        # todo: 梯度为None
         (decoder_outputs, stop_token_outputs, _), final_decoder_state, _ =\
             self.decoder(attention_mechanism, batch_size, inputs, mel_targets, global_step)
 
