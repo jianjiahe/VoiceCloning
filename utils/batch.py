@@ -77,17 +77,12 @@ class MiniBatch:
 
 def main():
     mini_batch = MiniBatch(corpus_name='biaobei', batch_size=32)
-    data = mini_batch.next_batch()
-    print(len(data))
-    # inputs, input_length, mel_target, linear_target, stop_token_target
-    for index, data_i in enumerate(data):
-        print(index, ' data\'s shape is', data_i.shape)
-    data = mini_batch.next_batch()
-    print(len(data))
-    # inputs, input_length, mel_target, linear_target, stop_token_target
-    for index, data_i in enumerate(data):
-        print(index, ' data\'s shape is', data_i.shape)
-
+    for i in range(10000//32):
+        data = mini_batch.next_batch()
+        print(i, ' batch:')
+        for index, data_i in enumerate(data):
+            print(index, ' data\'s shape is', data_i.shape)
+        print('')
 
 if __name__ == '__main__':
    main()

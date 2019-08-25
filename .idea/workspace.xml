@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb52c54-062f-4af1-89d3-c01332ecca43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/data.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/batch_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/error2.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/tacotron.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tacotron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hparams.py" beforeDir="false" afterPath="$PROJECT_DIR$/hparams.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/util/attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/util/attention.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/error.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/error.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/InferBase.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/InferBase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/batch.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/batch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.batch">
+  <component name="RunManager" selected="Python.train">
     <configuration name="batch" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="biaobei_tacotron" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.batch" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.batch" />
         <item itemvalue="Python.reshape_test" />
         <item itemvalue="Python.spectrogram" />
         <item itemvalue="Python.stack_test" />
@@ -204,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566466313050</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="backup of finding error of None grad">
+      <created>1566527521423</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566527521423</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,7 +232,8 @@
     <MESSAGE value="attention add" />
     <MESSAGE value="build model" />
     <MESSAGE value="before run train successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="before run train successfully" />
+    <MESSAGE value="backup of finding error of None grad" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup of finding error of None grad" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

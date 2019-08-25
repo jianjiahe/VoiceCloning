@@ -29,7 +29,7 @@ class InferBase:
         self.mel_outputs, self.linear_output, self.stop_token_output, self.alignments \
             = Tacotron(training=False).infer(self.inputs, input_length=self.input_length)
 
-        self.writer = tf.summary.FileWriter(os.path.join(TrainBasic.CKP_DIR, self.corpus_name, self.run_name))
+        self.writer = tf.summary.FileWriter(os.path.join(hp.CKP_DIR, self.corpus_name, self.run_name))
 
         self.has_built = True
 

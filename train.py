@@ -27,7 +27,7 @@ flags.DEFINE_float('lr_const', 0.0001, 'learning rate keeps this value at the la
 flags.DEFINE_integer('warming_steps', 4000, 'step number for warming learning rate')
 flags.DEFINE_integer('summary_stride', 50, 'write summary every this epoch')
 flags.DEFINE_integer('corpus_size', 80000, 'the number of all items in the train corpus')  # 107104(8w, 7144,19960)
-flags.DEFINE_integer('batch_size', 32, 'batch_size')
+flags.DEFINE_integer('batch_size', hp.batch_size, 'batch_size')
 flags.DEFINE_integer('epoch_num', 50, 'epoch number')
 flags.DEFINE_string('corpus_name', hp.biaobei, 'corpus name')
 flags.DEFINE_integer('mel_filters', 64, 'the number of mel-filters')
@@ -119,9 +119,10 @@ class Trainer:
             with tf.variable_scope('grad_norms'):
                 grad_norms = []
                 for index, grad in enumerate(gradients):
+                    grad_norms.append(tf.norm(grad))
                     # print(index, ' grad is: ', grad)
                     # if grad is not None:
-                    grad_norms.append(tf.norm(grad))
+                    #     grad_norms.append(tf.norm(grad))
                 tf.summary.histogram('grad_norms', grad_norms)
 
             clipped_gradients, _ = tf.clip_by_global_norm(gradients, 1.0)
@@ -300,7 +301,7 @@ class Trainer:
 
     def _save_checkpoint(self, sess: tf.Session):
         logging.info('Saving checkpoints...')
-        self.saver.save(sess, os.path.join(TrainBasic.CKP_DIR, self.corpus_name, self.run_name, 'ckp'),
+        self.saver.save(sess, os.path.join(hp.CKP_DIR, self.corpus_name, self.run_name, 'ckp'),
                         global_step=self.global_step)
         logging.info('Checkpoint saves.')
 
@@ -309,7 +310,7 @@ class Trainer:
         self.has_built = False
 
     def check_dir(self):
-        checkpoint_path = os.path.join(TrainBasic.CKP_DIR, self.corpus_name, self.run_name, '')
+        checkpoint_path = os.path.join(hp.CKP_DIR, self.corpus_name, self.run_name, '')
         if not os.path.exists(checkpoint_path):
             os.makedirs(checkpoint_path)
 
